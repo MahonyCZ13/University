@@ -3,7 +3,7 @@
  *
  *       Filename:  priklad_1.c
  *
- *    Description:  Implementujte některé ze standardních knihovních funkcí pro práci s řetězci: strlen, strcpy, strcat, strcmp, ...        
+ *    Description:  Napište program, který obrátí začátek a konec souboru. Obrátí se pořadí všech znaků v souboru, celý soubor bude pozpátku.  Parametry programu: -i input. Velikost souboru může být větší než vaše RAM a dokonce i větší než 1/2 disku.        
  *
  *        Remarks:  Tento zdrojovy kod jsem vypracoval zcela samostatne bez cizi pomoci
  *                  Neokopiroval jsem ani neopsal jsem cizi zdrojove kody
@@ -24,3 +24,18 @@
  * =====================================================================================
  */
 
+#include<stdio.h>
+
+int main()
+{
+    FILE* myFile;
+    int c;
+
+    if( !(myFile = fopen("test.txt", "r"))) error();
+    
+    while((c = getc( myFile)) != EOF) putchar(c);
+    
+    fclose(myFile);
+    
+    return 0;
+}

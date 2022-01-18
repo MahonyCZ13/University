@@ -28,14 +28,7 @@
 
 int main()
 {
-    FILE* myFile;
-    int c;
-
-    if( !(myFile = fopen("test.txt", "r"))) error();
     
-    while((c = getc( myFile)) != EOF) putchar(c);
-    
-    fclose(myFile);
     
     return 0;
 }
