@@ -26,27 +26,31 @@
 
 #include<stdio.h>
 
+// Funkce na zobrazeni pole do standardniho vystupu
 int PrintArray(int pole[], int length)
 {
     int i;
-    //int length = sizeof(pole) / sizeof(pole[0]);
 
     for(i = 0; i < length; i++)
     {
-        printf("%d ,", pole[i]);
+        printf("%d ", pole[i]);
     }
     printf("\n");
     return 0;
 }
 
-int BetterBubbleSort(int pole[], int length)
+int BubbleSort(int pole[], int length)
 {
     int i, j, temp;
 
+    // Vnejsi cyklus kontroluje cele pole
     for(i = 0; i < length; i++)
     {
+        // Vnitrni cyklus kontroluje sousedni prvky pole
         for(j = 0; j < length - i; j++)
         {
+            // Pokud je prave prochazeny prvek vetsi nez nasledujici
+            // Porohodime
             if(pole[j] > pole[j+1])
             {
                 temp = pole[j];
@@ -60,11 +64,11 @@ int BetterBubbleSort(int pole[], int length)
 
 int main()
 {
-    int pole[] = { 1, 5, 3 ,6 , 90, 2 };
+    int pole[] = { 1, 5, 3, 6, 90, 2 };
     int length = sizeof(pole) / sizeof(pole[0]);
     
     PrintArray(pole, length);
-    BetterBubbleSort(pole, length);
+    BubbleSort(pole, length);
     PrintArray(pole, length);
 
 
