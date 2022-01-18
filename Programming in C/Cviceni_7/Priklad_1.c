@@ -26,16 +26,36 @@
 
 #include<stdio.h>
 
-int main()
+int DoIt(char* first, char* second, int one, int two)
 {
-    FILE* myFile;
+    printf("%s and %s | %d and %d", first, second, one, two);
+    return 0;
+}
+
+int main(int argc, char** argv)
+{
+    int w = 0;
+    int o = 0;
+    while(*++argv && **argv=='-')
+    {
+        switch(argv[0][1])
+        {
+            case 'w': w = 1; break;
+            case 'o': o = 1; break;
+            default: error();
+        }
+        
+    }
+    DoIt(argv[0], argv[1], w, o);
+    // File accessing
+    /* FILE* myFile;
     int c;
 
     if( !(myFile = fopen("test.txt", "r"))) error();
     
     while((c = getc( myFile)) != EOF) putchar(c);
     
-    fclose(myFile);
+    fclose(myFile); */
     
     return 0;
 }
