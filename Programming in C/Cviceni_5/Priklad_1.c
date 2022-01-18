@@ -45,12 +45,33 @@ int custom_strlen(char* pole)
     return i;
 }
 
+int custom_intlen(int* pole)
+{
+    int i = 0;
+    int valid = 1;
+
+    while(valid == 1)
+    {
+
+        if(pole[i] == '\000')
+        {
+            valid = 0; 
+            break;
+        }
+        //printf("%c\n", pole[i]);
+        i = i + 1;
+    }
+    return i;
+}
+
 int main()
 {
 
     char* pozdrav = "Hello!!";
+    int rada[] = { 5, 4 ,3 ,2, 6 };
     int length = custom_strlen(pozdrav);
+    int length2 = sizeof(rada) / sizeof(rada[0]);
 
-    printf("Delka pole je %d\n", length);
+    printf("Delka pole je %d\n", length2);
     return 0;
 }
