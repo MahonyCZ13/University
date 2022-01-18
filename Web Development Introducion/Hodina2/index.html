@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+      "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+  <head>
+	<script type="text/javascript">
+   	function faktorial(a)
+			{
+				b = 1; // b se timhle zpusobem definuje v globlanim scope
+				var f = 1; // f se timhle zpusobem definuje jako lokalni promenna								
+				for(c = 1;c <= a;c++) b = b * c;
+				return b;
+			}
+			faktorial(); // timhle invokujeme funkci
+			function pk()
+			{
+			  var status = document.forms[0].klikatko.checked
+				if(status == true)
+				{
+				  alert('Vybrano!');
+				}
+				else
+				{
+          alert('Nic!');
+				}
+			}
+			function prb(){
+        var prbstatus = document.forms[0].televize, i = 0, iv = -1;
+        for(;i < prbstatus.length; i++)
+				{
+				  if(prbstatus[i].checked) iv = i;
+				}
+				return iv;
+			}
+	</script>
+  <style type="text/css">
+    p{
+			color: red;
+    }
+		p.modra {
+			color: blue;
+		}
+  </style>
+	</head>
+	<body onload="document.forms[0].tvp.value='Ejhle!';">
+	  <form onsubmit="alert('submitli jsme!'); return false;">
+		  Zadajete text: <input type="text" name="tvp"><br>
+			Zadejte dalsi Text: <input type="text" name="textovepole"><br>
+			<input type="button" value="Klikej!" onclick="prb();"><br>
+			<input type="submit" value="pocitej"><br>
+			Klikatko: <input type="checkbox" name="klikatko"><br>
+			Televize 0: <input type="radio" name="televize"><br>
+			Televize 1: <input type="radio" name="televize"><br>
+			Televize 2: <input type="radio" name="televize"><br>
+		</form>
+		<p>Toto ma mit cervenou barvu</p>
+		<p class="modra">Tento text ma mit modrou barvu</p>
+	</body>
+</html>

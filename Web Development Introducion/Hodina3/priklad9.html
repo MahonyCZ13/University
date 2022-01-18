@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.idtd">
+<html>
+	<head>
+		<meta charset="UTF-8"></meta>
+		<title>Finanční služby - Pojištění</title>
+		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript">
+			
+			function Kalkuluj() {
+				if(document.pojisteni.blesk.checked){
+					alert("Yes!");
+				}else{
+					alert("No...");
+				}
+
+				var poleTest = new Array();
+
+				poleTest['prvni', 'druhy', 'treti'] = [1,2,3];
+				
+				alert(poleTest['druhy']);
+
+				var typPojisteni = new Array();
+				typPojisteni['Zaklad'] = 500.0;
+				typPojisteni['Standard'] = 800.0;
+				typPojisteni['Exclusive'] = 1100.0;
+
+				var nadstandard = new Array();
+				nadstandard['blesk'] = 200.0;
+				nadstandard['voda'] = 400.0;
+				nadstandard['letadlo'] = 50.0;
+
+				var koeficient = new Array();
+				koeficient['pole'] = 2;
+				koeficient['les'] = 2;
+				koeficient['letiste'] = 2;
+				
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Pojištění</h1>
+		<p>Navolte si své pojištění</p>
+		
+		<form name="pojisteni" onsubmit="Kalkuluj(); return false;">
+			Typ: <select name="typ">
+				<option>Zaklad</option>
+				<option>Standard</option>
+				<option>Exclusive</option>
+			</select><br>
+			<input type="checkbox" name="blesk">
+			<label for="blesk">Blesk</label><br>
+			<input type="checkbox" name="voda">
+			<label for="voda">Voda</label><br>
+			<input type="checkbox" name="letadlo">
+			<label for="letadlo">Letadlo</label><br>
+			<input type="submit" value="Kalkuluj"><br>
+		</form>
+	</body>
+</html>

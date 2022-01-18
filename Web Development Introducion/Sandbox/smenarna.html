@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	 "http://www.w3.org/TR/html4/loose.idtd">
+<html>
+	<head>
+		<meta charset="UTF-8"></meta>
+		<title>Smenarna</title>
+		<script type="text/javascript">
+
+			function DostatKurz(){
+				
+				var amount = document.forms[0].mnozstvi.value;
+				var from = document.forms[0].from.value;
+				var to = document.forms[0].to.value;
+				
+				var CZK = new Array();
+        CZK['USD'] = 0.043;
+        CZK['EUR'] = 0.037;
+				CZK['CZK'] = 1.0;
+        var USD = new Array();
+        USD['CZK'] = 23.130;
+        USD['EUR'] = 0.833;
+				USD['USD'] = 1.0;
+        var EUR = new Array();
+        EUR['CZK'] = 26.560;
+        EUR['USD'] = 1.204;
+				EUR['EUR'] = 1.0;
+				
+				switch(from){
+					case "EUR":
+						var vysledek = amount * EUR[to];
+					break;
+					case "CZK":
+						var vysledek = amount * CZK[to];
+						break;
+					case "USD":
+						var vysledek = amount * USD[to];
+						break;
+					default:
+						var vysledek = "Nothing!";
+				}
+
+			alert(vysledek);
+			// document.p[0].innerHTML = vysledek;
+			}
+		</script>
+	</head>
+	<body>
+
+		<h1>Směnárna</h1>
+		<table border="1">
+			<caption>Kurzovní lístek</caption>
+			<tr>
+				<th>Měna</th>
+				<th>Nákup</th>
+				<th>Prodej</th>
+			</tr>
+			<tr>
+				<td>EUR</td>
+				<td>26.56</td>
+				<td>25.91</td>
+			</tr>
+			<tr>
+				<td>USD</td>
+				<td>23.13</td>
+				<td>22.65</td>
+			</tr>
+		</table>
+		<h3>Online výpočet</h3>	
+		<form onsubmit="DostatKurz()">
+			Kolik chcete vyměnit: <input type="text" name="mnozstvi"><br>
+			<select name="from"><br>
+				<option>CZK</option>
+				<option>USD</option>
+				<option>EUR</option>
+			</select>
+			<select name="to"><br>
+        <option>CZK</option>
+        <option>USD</option>
+        <option>EUR</option>
+      </select>
+			<input type="submit" value="Vypočítej"><br>
+		</form>
+		
+		<p class="vysledek"></p>
+	
+	</body>
+</html>

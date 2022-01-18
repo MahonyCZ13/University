@@ -1,0 +1,95 @@
+____________________________________________________________
+
+TACKLING THE WEARABLE DEVICE SECURITY CHALLENGE
+
+Author: Irvine, Jerry
+
+Publication info: PM. Public Management ; Washington  Vol. 96, Iss. 9,  (Oct 2014): 25.
+
+https://search.proquest.com/trade-journals/tackling-wearable-device-security-challenge/docview/1584826760/se-2?accountid=37662
+
+Abstract: Wearable technologies increase collaboration and information sharing. But these benefits, including the ability to record and store data in real time and access and share information more easily, present significant vulnerabilities in an environment that houses the personally identifiable information of constituents or the nation's top secret security information. Nevertheless, wearable technologies must be included in security measures put in place to protect against mobile devices' vulnerabilities, which should be documented in an organization's mobile device management or bring your own device (BYOD) policies. All organizations should develop a detailed BYOD policy, which includes an acceptable usage policy signed and accepted by all users before they use any wearable or mobile devices in the workplace environment.
+
+Full text:   Headnote Extending security measures to a new category of devices
+Wearable technologies increase collaboration and information sharing. But these benefits, including the ability to record and store data in real time and access and share information more easily, present significant vulnerabilities in an environment that houses the personally identifiable information of constituents or the nation's top secret security information.
+The major difference between wearable and such other mobile devices as smartphones and tablets is their inconspicuous forms and persistent access. Wearable devices are designed to fulfill the role and appearance of once low-tech consumer products like glasses, watches, and wrist bands, while providing highly available IT services 24/7.
+Nevertheless, wearable technologies must be included in security measures put in place to protect against mobile devices' vulnerabilities, which should be documented in an organization's mobile device management (MDM) or bring your own device (BYOD) policies.
+Associated Risks
+The way that wearable devices connect to your smartphones and tablets or can be configured to connect directly to the Internet by Wi-Fi presents major risks to government organizations.
+First, wearable device users can access all enterprise data and systems through an organization's Wi-Fi network. While wearable devices generally have limited data storage built into them, they generally transmit all data to cloud-based storage systems.
+Once information is accessed, they could then bypass firewall and webfiltering applications, gaining access directly to the Internet through their own smartphone's Internet. Finally, as defined, all data accessed, photographed, and recorded is automatically transferred to a third-party storage site. All of this usually happens concurrently.
+Because of the multiple network connections and limited built-in security measures within wearable devices, these functions can go undetected by internal systems security solutions already in place. Also, because wearable device users have unfiltered access to the Internet, they could unintentionally or maliciously infect enterprise systems with viruses or other malware picked up from their mobile device's Internet through the enterprise Wi-Fi.
+In short, neither security of information being accessed, recorded, or transmitted nor protection from malicious activity are provided within the standard offerings of wearable devices, and both can be completed easily with little or no detection.
+Develop Detailed Security Policies
+The greatest challenge in securing wearable technologies is the same challenge being faced in providing secure MDM or BYOD policies. Before government entities allowed employees to bring and use their own devices, the organizations could maintain separate enterprise mobile devices and controls.
+By segmenting enterprise and personal devices, it was possible to put more stringent and automated security measures in place. Today, it's more difficult, requiring written rights and authorization from employees to manage, support, and control their personal devices.
+All organizations should develop a detailed BYOD policy, which includes an acceptable usage policy signed and accepted by all users before they use any wearable or mobile devices in the workplace environment.
+In this evolving environment, security policies must be altered and implemented to protect against the vulnerabilities of wearable devices. For example:
+* Wearable devices should only be allowed for employees who require the device as an integral part of their position. Users bringing in personal devices only for their own personal enjoyment or recreation decrease productivity and increase security risks with no enterprise benefit.
+* Specific access controls must be implemented, allowing the pairing of wearable devices only to mobile devices or Wi-Fi networks that are monitored and controlled by enterprise security applications.
+* MDM software designed to register, monitor, manage, and wipe mobile devices should be centrally installed and implemented by the organization to control all wearable solutions as well as the mobile devices to which they connect.
+* Internet filtering applications should be configured to specifically detect and manage wearable and mobile devices, both locally on the enterprise location as well as remotely outside of the organization's network, as remote access may still be available to an employee away from the organization's internal network.
+* Data loss prevention (DLP) systems should be implemented to protect specific categories and levels of data to include private, confidential, and personally identifiable information. Pt/I
+AuthorAffiliation JERRY IRVINE Chief Information Officer Prescient Solutions Chicago, Illinois jirvine@prescientsolutions.com Member of the National Cyber Security Task Force
+
+Subject: Security management; Computer security; Network security; Smartphones; Employees
+
+Business indexing term: Subject: Smartphones Employees
+
+Title: TACKLING THE WEARABLE DEVICE SECURITY CHALLENGE
+
+Publication title: PM. Public Management; Washington
+
+Volume: 96
+
+Issue: 9
+
+Pages: 25
+
+Number of pages: 1
+
+Publication year: 2014
+
+Publication date: Oct 2014
+
+Section: tech touch: security
+
+Publisher: International City/County Management Association
+
+Place of publication: Washington
+
+Country of publication: United States, Washington
+
+Publication subject: Public Administration--Municipal Government
+
+ISSN: 00333611
+
+Source type: Trade Journals
+
+Language of publication: English
+
+Document type: Commentary
+
+ProQuest document ID: 1584826760
+
+Document URL: https://search.proquest.com/trade-journals/tackling-wearable-device-security-challenge/docview/1584826760/se-2?accountid=37662
+
+Copyright: Copyright International City/County Management Association Oct 2014
+
+Last updated: 20 20-11-18
+
+Database: ProQuest Central
+
+____________________________________________________________
+
+Bibliography
+
+Citation style: APA 6th - American Psychological Association, 6th Edition
+
+TACKLING THE WEARABLE DEVICE SECURITY CHALLENGE. (2014). PM.Public Management, 96(9), 25. Retrieved from https://search.proquest.com/trade-journals/tackling-wearable-device-security-challenge/docview/1584826760/se-2?accountid=37662
+
+____________________________________________________________
+
+Contact us at: http://about.proquest.com/go/pqissupportcontact
+Database copyright © 2021 ProQuest LLC. All rights reserved.
+Terms and Conditions: https://search.proquest.com/info/termsAndConditions
