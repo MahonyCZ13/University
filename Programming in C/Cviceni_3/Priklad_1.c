@@ -31,18 +31,23 @@
 #include<stdio.h>
 #include<math.h>
 
+// Fuknce na modulo
 int Modulo(double cislo1, double cislo2)
 {
+
+    // Vydelime obe cislo a zaokrouhlime
     double mezisoucet = cislo1 / cislo2;
     int vysledek = round(mezisoucet);
-    //printf("Mezi: %f\n", mezisoucet);
+    
     return vysledek;
 }
 
 int Average()
 {
+    // Inicializujeme a deklarujeme si pole
     int pole[] = {3, 1, 5, 2, 6, 1, 7, 2};
-    //int akt;
+    
+    // Promenne
     int iterace = 7;
     int nejvetsi;
     int druheNejvetsi;
@@ -50,9 +55,14 @@ int Average()
     int akt;
     int mezisoucet = 0;
     double vysledek;
+
+    // Prochod polem
     for(int i = 0; i <= iterace; i = i+1)
     {
+        // Nastavime si aktualni hodnotu do promenne
         akt = pole[i];
+
+        // Zalogujeme si aktualni mezisoucet
         mezisoucet = mezisoucet + akt;
         //printf("----------- Zacatek ------------\n");
         //printf("akt: %d\n", akt);
@@ -60,19 +70,25 @@ int Average()
         //printf("Druhe nejvetsi: %d\n", druheNejvetsi);
         //printf("Treti nejvetsi: %d\n", tretiNejvetsi);
         
+        // Nejprve si overime, zda jsme nenarazili na nejvetsi cislo
         if(nejvetsi < akt)
         {
+            // Poud ano, postupne 'setreseme' hodnoty o uroven nize
             tretiNejvetsi = druheNejvetsi;
             druheNejvetsi = nejvetsi;
             nejvetsi = akt;
         }
+        // Overime si, zda nemame druhe nejvetsi cislo
         if(druheNejvetsi < akt && nejvetsi > akt)
         {
+            // Pokud ano, opet 'setreseme'
             tretiNejvetsi = druheNejvetsi;
             druheNejvetsi = akt;
         }
+        // Nakonec si overime, zda nemame treti nejvetsi cislo
         if(tretiNejvetsi < akt && druheNejvetsi > akt && nejvetsi > akt)
         {
+            // Pokud ano, nastavime
             tretiNejvetsi = akt;
         }
 
@@ -80,16 +96,18 @@ int Average()
         //printf("Nejvetsi: %d\n", nejvetsi);
         //printf("Druhe nejvetsi: %d\n", druheNejvetsi);
     }
+    // Vypocteme prumer
     vysledek = mezisoucet / iterace;
     printf("Prumer: %d/%d=%2.2f\n", mezisoucet, iterace, vysledek);
 
     printf("Treti nejvetsi: %d\n", tretiNejvetsi);
+    
+    // Navratovou hodnotu nechceme
     return 0;
 }
 
 int main()
 {
     Average();
-    //printf("Vysledek: %d\n", Modulo(2.64, 1.2));
     return 0;
 }

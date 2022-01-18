@@ -64,7 +64,7 @@ int main()
         printf("6) cos (cos)\n"); 
         printf("7) tan (tan)\n"); 
         printf("8) druha odmocnina (^1/2)\n");
-        printf("Pro ukonceni stisknete 'Q'\n\n");
+        //printf("Pro ukonceni stisknete 'Q'\n\n");
 
         scanf("%d", &operace);
         
