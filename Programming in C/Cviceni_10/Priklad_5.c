@@ -3,7 +3,7 @@
  *
  *       Filename:  priklad_1.c
  *
- *    Description:  INapište zásobník, implementujte funkce Push a Pop.        
+ *    Description:  Napište zásobník, implementujte funkce Push a Pop.        
  *
  *        Remarks:  Tento zdrojovy kod jsem vypracoval zcela samostatne bez cizi pomoci
  *                  Neokopiroval jsem ani neopsal jsem cizi zdrojove kody
