@@ -769,3 +769,6 @@ TSWLatexianTemp*
 
 # glossaries
 *.glstex
+
+# Mac
+.DS_Store
