@@ -24,9 +24,6 @@
  * =====================================================================================
  */
 
-// https://www.geeksforgeeks.org/write-a-function-to-get-nth-node-in-a-linked-list/
-// https://github.com/oi8io/clang/blob/master/example/linkedlist.c
-
 #include<stdio.h>
 #include<stdlib.h>
 typedef struct prvek
@@ -35,14 +32,19 @@ typedef struct prvek
     struct prvek *next;
 } PRVEK;
 
-void addLast(struct prvek **prvni, int hodnota)
+void Push(struct prvek **prvni, int hodnota)
 {
+    // Inicializace noveho seznamu
     struct prvek *novaData = malloc(sizeof(struct prvek));
 
+    // Naplneni noveho seznamu prvni hodnotou
     novaData->n = hodnota;
     novaData->next;
 
+    // Pokud seznam neexistuje (tedy jeho prvni prvek), vytvorime
     if(*prvni == NULL) *prvni = novaData;
+    // Pokud ano, nejdeme posledni prvek v seznamu a za nej
+    // pridame prvek novy (tedy na konec fronty)
     else {
         struct prvek *posledniPrvek = *prvni;
         while(posledniPrvek->next != NULL)
@@ -81,38 +83,51 @@ int main()
         
     }
     
-    // Vypis pred Pop
+    printf("------ Vypis pred Pop -------\n");
     for(p_akt = p_prvni; p_akt != NULL; p_akt = p_akt->next)
     {
         printf("%d \n", p_akt->n);
     }
+    printf("\n");
 
-    // Pop
+    // ******** Pop ********
+    // Inicializujeme si novy seznam jako docasnou promennou
     struct prvek *temp = p_prvni;
+    // Posuneme koren seznamu o jednu hodnotu dal
+    // a tim efektivne vymazeme referenci puvodni prvni hodnoty
     p_prvni = p_prvni->next;
     
-    printf("--------------\n");
+    printf("------ Vypis po Pop -------\n");
     printf("\nVymazana hodnota:\n");
-    printf("%d\n", temp->n);
-    printf("--------------\n");
+    // Docasnou promennou nyni pouzijeme jako zpetnou vazbu,
+    // Kterou hodnotu jsme z fronty odebrali
+    printf("((( %d )))\n\n", temp->n);
+    printf("------ Aktualni fronta -------\n");
     
+    // Uvolnime pamet
+    free(temp);
     
     // Vypis po Pop
     for(p_akt = p_prvni; p_akt != NULL; p_akt = p_akt->next)
-    {
-        
+    {    
         printf("%d \n", p_akt->n);
     }
     
+    printf("\n");
     
-    // Push
+    // ******** Push ********
+    // Inicializace noveho seznamu
     struct prvek *novaData = malloc(sizeof(struct prvek));
     int hodnota = 13;
 
+    // Naplneni noveho seznamu prvni hodnotou
     novaData->n = hodnota;
     novaData->next;
 
+    // Pokud seznam neexistuje (tedy jeho prvni prvek), vytvorime
     if(p_prvni == NULL) p_prvni = novaData;
+    // Pokud ano, nejdeme posledni prvek v seznamu a za nej
+    // pridame prvek novy (tedy na konec fronty)
     else {
         struct prvek *posledniPrvek = p_prvni;
         while(posledniPrvek->next != NULL)
@@ -121,13 +136,14 @@ int main()
         }
         posledniPrvek->next = novaData;
     }
-    printf("--------------\n");
+
+    printf("------ Vypis po Push -------\n");
     
     // Vypis po Push
     for(p_akt = p_prvni; p_akt != NULL; p_akt = p_akt->next)
     {    
         printf("%d \n", p_akt->n);
     }
-
+    printf("\n");
     return 0;
 }
