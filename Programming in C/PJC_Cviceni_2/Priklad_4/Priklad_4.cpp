@@ -24,18 +24,91 @@
  * =====================================================================================
  */
 
-int main()
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void removeChar(char* s, char c)
+{
+
+    int j, n = strlen(s);
+    for (int i = j = 0; i < n; i++)
+        if (s[i] != c)
+            s[j++] = s[i];
+
+    s[j] = '\0';
+}
+
+void swap(char* x, char* y)
+{
+    char temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+void permutation(char* a, int l, int r)
 {
     int i;
-    int x = 3;
-    char t = 'T';
-    char g = 'G';
-    char c = 'C';
-    char a = 'A';
 
-    for (i = 0; i <= 4; i++)
+    if (l == r)
+        printf("%s\n", a);
+    else
     {
-
+        for (i = l; i <= r; i++)
+        {
+            swap((a + l), (a + i));
+            permutation(a, l + 1, r);
+            swap((a + l), (a + i));
+        }
     }
+}
+
+void arrayMove(char* pole, int l, int r)
+{
+
+    int i;
+    size_t n = sizeof(pole) / sizeof(pole[0]);
+
+    for (i = 0; i <= n - 1; i++)
+    {
+        char subBuff[5];
+        strcpy_s(subBuff, pole);
+        removeChar(subBuff, pole[i]);
+        permutation(subBuff, l, r);
+    }
+
+    /*char subBuff1[5];
+    strcpy_s(subBuff1, pole);
+    removeChar(subBuff1, 'T');
+    permutation(subBuff1, l, r);
+    free(subBuff1);
+
+    char subBuff2[5];
+    strcpy_s(subBuff2, pole);
+    removeChar(subBuff2, 'G');
+    permutation(subBuff2, l, r);
+    free(subBuff2);
+
+    char subBuff3[5];
+    strcpy_s(subBuff3, pole);
+    removeChar(subBuff3, 'C');
+    permutation(subBuff3, l, r);
+    free(subBuff3);
+
+    char subBuff4[5];
+    strcpy_s(subBuff4, pole);
+    removeChar(subBuff4, 'A');
+    permutation(subBuff4, l, r);
+    free(subBuff4);*/
+
+}
+
+int main()
+{
+    char pole[] = "TGCA";
+    int n = 3;
+
+    arrayMove(pole, 0, n - 1);
+
     return 0;
 }
