@@ -19,6 +19,6 @@ This is my repository to store all the University assignments.
 
 ## Fourth semester
 
-- Object Oriented Programming
-- Programming for MS Windows 2
-- Application programming
+- Object Oriented Programming (C++)
+- Programming for MS Windows 2 (C#)
+- Application programming (TBD)
