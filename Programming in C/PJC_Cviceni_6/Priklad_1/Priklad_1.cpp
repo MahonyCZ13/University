@@ -34,12 +34,91 @@
  */
 
 #include<stdio.h>
+#include<malloc.h>
 
+int NSD(int* x, int* y)
+{
+    int i, result = 0;
+
+    for (i = 1; i <= *x && i <= *y; i++)
+    {
+        if (*x % i == 0 && *y % i == 0)
+            result = i;
+    }
+
+    return result;
+}
+
+int NSN(int* x, int* y, int* nsd)
+{
+    int result = 0;
+
+    result = (*x * *y / *nsd);
+
+    return result;
+}
+
+void saveResult(int* matice, int* n, int* m, int (F)(int* a, int* b))
+{
+    F = &NSD;
+
+    int result = F(n, m);
+
+    matice[*n][m] = result;
+
+    printf("A[%d][%d] = %d\n\n", *n, *m, matice[*n][m]);
+
+}
 
 int main()
 {
+    int n = 5, m = 5;
+    int i,j;
+    
+    int* matice = (int*)malloc((n * m) * sizeof(int));
+
+    // Naplneni matice
+    for (i = 0; i < n * m; i++)
+    {
+        matice[i] = i + 1;
+    }
+
+    // Vypis matice na obrazovku
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < m; j++)
+        {
+            int position = i * n + j;
+            printf(" %d |", matice[position]);
+           
+        }
+        printf("\n");
+    }
+
+    int nsd = NSD(&n, &m);
+    printf("\n%d\n", nsd);
+
+    int nsn = NSN(&n, &m, &nsd);
+    printf("\n%d\n", nsn);
 
 
+    saveResult(matice, &n, &m, NSD);
+    
+    int a = 2;
+    int b = 3;
+    printf("\nA[2][3] = %d\n", matice[a][b]);
+
+    // Vypis matice na obrazovku
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < m; j++)
+        {
+            int position = i * n + j;
+            printf(" %d |", matice[position]);
+
+        }
+        printf("\n");
+    }
 
     return 0;
 }
