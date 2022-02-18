@@ -1,4 +1,4 @@
-Write-Host "Algoritmus: Euklides"
+Write-Host "Algoritmus: Euklides" -ForegroundColor Yellow
 
 $x = 13400
 $y = 656
@@ -23,4 +23,4 @@ while ($z -ne 0)
     Write-Verbose "y = $y"
     Write-Verbose "--------"
 }
-Write-Host("NSD je:", $z)
+Write-Host("NSD je:", $z) -ForegroundColor Green
