@@ -1,7 +1,7 @@
 Write-Host "Algoritmus: Euklides" -ForegroundColor Yellow
 
-$x = 13400
-$y = 656
+$x = 41224
+$y = 22693
 
 Write-Host "x = $x, y = $y"
 
@@ -10,10 +10,10 @@ while ($z -ne 0)
     $z = $x % $y
     Write-Verbose "$x % $y = $z"
     $x = $y - $z
-    Write-Verbose "$y - $z =  $x"
+    Write-Verbose "$y - $z = $x"
     if ($z -eq 0)
     {
-        $z = $y
+        Write-Host("NSD je:", $y) -ForegroundColor Green
         break
     }
     else
@@ -23,4 +23,3 @@ while ($z -ne 0)
     Write-Verbose "y = $y"
     Write-Verbose "--------"
 }
-Write-Host("NSD je:", $z) -ForegroundColor Green
