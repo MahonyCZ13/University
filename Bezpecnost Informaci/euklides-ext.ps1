@@ -26,7 +26,7 @@ function euklidExt {
     $x = $y1 - ($b / $a) * $x1
     $y = $x1
 
-    Write-Host $nsd -ForegroundColor Green
+    Write-Host "NSD = $nsd" -ForegroundColor Green
 }
 
 euklidExt $a $b $x $y
