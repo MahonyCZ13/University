@@ -21,7 +21,7 @@ def euklidExt(a, b):
             
     gcd, x1, y1 = euklidExt(b%a, a)
     
-    x = y1 - (b//a) * x1
+    x = y1 - (b/a) * x1
     y = x1
     
     return gcd, x, y
