@@ -773,3 +773,4 @@ TSWLatexianTemp*
 # Mac
 .DS_Store
 *.zip
+*.log
