@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1643987502 source:/home/petr/.local/src/University/Object Oriented Programming/OOP_Sandbox/src/zvire.cpp
+	"zvire.h"
+
+1643982903 /home/petr/.local/src/University/Object Oriented Programming/OOP_Sandbox/include/zvire.h
+
+1643987759 source:/home/petr/.local/src/University/Object Oriented Programming/OOP_Sandbox/main.cpp
+	<iostream>
+	"zvire.h"
+

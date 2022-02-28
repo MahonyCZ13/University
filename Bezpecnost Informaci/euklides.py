@@ -1,5 +1,21 @@
 import io
 
+class Color:
+   PURPLE = '\033[95m'
+   CYAN = '\033[96m'
+   DARKCYAN = '\033[36m'
+   BLUE = '\033[94m'
+   GREEN = '\033[92m'
+   YELLOW = '\033[93m'
+   RED = '\033[91m'
+   BOLD = '\033[1m'
+   UNDERLINE = '\033[4m'
+   END = '\033[0m'
+
+print(f"\n{Color.BOLD}---------------------{Color.END}")
+print(f"{Color.YELLOW}Algoritmus: Euklides{Color.END}")
+print(f"{Color.BOLD}---------------------{Color.END}\n")
+
 x = 13400
 y = 656
 z = 1
@@ -17,4 +33,4 @@ while z != 0:
     print("y =", y)
     print("--------")
 
-print("NSD je:", z)
+print(f"\n{Color.GREEN}NSD =", z, f"{Color.END}\n")
