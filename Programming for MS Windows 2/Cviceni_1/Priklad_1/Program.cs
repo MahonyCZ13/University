@@ -6,8 +6,6 @@
 // Poruseni techto pravidel se povazuje za podvod, ktery lze potrestat VYLOUCENIM ZE STUDIA
 // Petr Maronek, 36456
 
-using System.Threading;
-
 namespace Cviceni1
 {
     class Program
@@ -15,13 +13,14 @@ namespace Cviceni1
         // NENI MOJE TVORBA
         public delegate void ThreadStart();
         public object numLock = new object();
+        public int baseLevel = 1000;
 
         public void PrintNumber()
         {
             // Projit v prezentaci
-            lock(numLock)
-            { 
-                for(int i = 0; i<= 50; i++)
+            lock (numLock)
+            {
+                for (int i = 0; i <= 50; i++)
                 {
                     Console.Write(i);
                     Thread.Sleep(10);
@@ -31,56 +30,65 @@ namespace Cviceni1
         public void PrintCharacter()
         {
             int j;
-            for (int i = 0;i<= 40;i++)
+            for (int i = 0; i <= 40; i++)
             {
                 // Vypiseme na obrazovku znak z ASCII tabulky
                 // +20 je zde proto, abychom vypsali na obrazovku zname znaky a ne specialni
                 j = i + 60;
                 Console.Write((char)j);
                 Thread.Sleep(100);
-
-                j = i;
             }
         }
-        public void PrintDash()
+
+        private void IncreaseLevel()
         {
-            for(int i = 0; i <= 70;i++)
+            lock(numLock)
             {
-                Console.Write("-");
-                Thread.Sleep(50);
+                if (baseLevel > 0) baseLevel += 1000;
+                else Console.WriteLine($"Jsme v zaporu!: {baseLevel}");
+                
             }
+                           
+        }
+        public void DecreaseLevel()
+        {
+            lock(numLock)
+            {
+                if (baseLevel > 0) baseLevel -= 1000;
+                else Console.WriteLine($"Jsme v zaporu!: {baseLevel}");
+            }
+            
+        }
+        public void Vlakna()
+        {
+            Program program = new Program();
+            Thread thread1 = new Thread(program.IncreaseLevel);
+            Thread thread2 = new Thread(program.DecreaseLevel);
+            Thread thread3 = new Thread(program.IncreaseLevel);
+            
+            thread1.Name = "Zvysuji";
+            thread2.Name = "Snizuji";
+            thread3.Name = "Pomlcky";
+            
+            thread1.Start();
+            thread2.Start();
+            thread3.Start();
+
+            IncreaseLevel();
+            DecreaseLevel();
         }
         static void Main(string[] args)
         {
             Thread.CurrentThread.Name = "Hlavni vlakno";
             Console.WriteLine(Thread.CurrentThread.Name);
 
-            Program program = new Program();
-
-            // Vytvarime 3 vlakna
-            Thread thread1 = new Thread(program.PrintNumber);
-            Thread thread2 = new Thread(program.PrintCharacter);
-            Thread thread3 = new Thread(program.PrintDash);
-
-            // Pojmenujeme si vsechna vlakna
-            thread1.Name = "Cisla";
-            thread2.Name = "Pismena";
-            thread3.Name = "Pomlcky";
-
-            // Postupne vlakna spustime
-            Console.WriteLine($"Vypusuji {thread1.Name}");
-            thread1.Start();
-            Console.WriteLine($"Vypusuji {thread2.Name}");
-            thread2.Start();
-            Console.WriteLine($"Vypusuji {thread3.Name}");
-            thread3.Start();
-            
-            thread1.Join();
-            thread2.Join();
-            thread3.Join();
-
+            for(int i = 0; i < 10; i++)
+            {
+                Program run = new Program();
+                run.Vlakna();
+                Console.WriteLine(run.baseLevel);
+            }
             Console.WriteLine("\nHotovo");
-
         }
     }
 }
