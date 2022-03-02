@@ -13,8 +13,9 @@ namespace Cviceni1
         // NENI MOJE TVORBA
         public delegate void ThreadStart();
         public object numLock = new object();
-        public int baseLevel = 1000;
+        private static int baseLevel = 2000;
 
+        // testovaci metoda
         public void PrintNumber()
         {
             // Projit v prezentaci
@@ -27,6 +28,7 @@ namespace Cviceni1
                 }
             }
         }
+        // testovaci metoda
         public void PrintCharacter()
         {
             int j;
@@ -42,51 +44,62 @@ namespace Cviceni1
 
         private void IncreaseLevel()
         {
+            // Protoze pracujeme s globalni promennou, pouzijeme zamek
             lock(numLock)
             {
-                if (baseLevel > 0) baseLevel += 1000;
-                else Console.WriteLine($"Jsme v zaporu!: {baseLevel}");
+                //if (baseLevel >= 0) baseLevel += 610;
+                //else Console.WriteLine($"Jsme v zaporu!: {baseLevel}");
+                baseLevel += 610;
                 
-            }
-                           
+            }                         
         }
-        public void DecreaseLevel()
+        private void DecreaseLevel()
         {
-            lock(numLock)
+            // Protoze pracujeme s globalni promennou, pouzijeme zamek
+            lock (numLock)
             {
-                if (baseLevel > 0) baseLevel -= 1000;
+                // Pokud pri odecitani narazime na azpornou hodnotu, jiz dale nesnizujeme
+                if (baseLevel >= 0) baseLevel -= 500;
                 else Console.WriteLine($"Jsme v zaporu!: {baseLevel}");
-            }
-            
+            }         
         }
         public void Vlakna()
         {
-            Program program = new Program();
-            Thread thread1 = new Thread(program.IncreaseLevel);
-            Thread thread2 = new Thread(program.DecreaseLevel);
-            Thread thread3 = new Thread(program.IncreaseLevel);
-            
+            // Vytvorime si vlakna na pseido-nahodne operace
+            Thread thread1 = new Thread(IncreaseLevel);
+            Thread thread2 = new Thread(DecreaseLevel);
+            Thread thread3 = new Thread(IncreaseLevel);
+            Thread thread4 = new Thread(DecreaseLevel);
+            Thread thread5 = new Thread(IncreaseLevel);
+
             thread1.Name = "Zvysuji";
             thread2.Name = "Snizuji";
-            thread3.Name = "Pomlcky";
-            
+            thread3.Name = "Zvysuji";
+            thread4.Name = "Snizuji";
+            thread5.Name = "Zvysuji";
+
+            // Spustime vlakna
             thread1.Start();
             thread2.Start();
             thread3.Start();
+            thread4.Start();
+            thread5.Start();
 
-            IncreaseLevel();
+            // Pro test spustime take metody samostatne v hlavnim vlaknu
+            DecreaseLevel();
             DecreaseLevel();
         }
         static void Main(string[] args)
         {
-            Thread.CurrentThread.Name = "Hlavni vlakno";
+
+            Thread.CurrentThread.Name = "Main vlakno";
             Console.WriteLine(Thread.CurrentThread.Name);
 
             for(int i = 0; i < 10; i++)
             {
                 Program run = new Program();
-                run.Vlakna();
-                Console.WriteLine(run.baseLevel);
+                run.Vlakna();               
+                Console.WriteLine(baseLevel);              
             }
             Console.WriteLine("\nHotovo");
         }
