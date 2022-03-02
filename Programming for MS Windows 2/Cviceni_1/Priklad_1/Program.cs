@@ -65,7 +65,7 @@ namespace Cviceni1
         }
         public void Vlakna()
         {
-            // Vytvorime si vlakna na pseido-nahodne operace
+            // Vytvorime si vlakna na pseudo-nahodne operace
             Thread thread1 = new Thread(IncreaseLevel);
             Thread thread2 = new Thread(DecreaseLevel);
             Thread thread3 = new Thread(IncreaseLevel);
