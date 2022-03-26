@@ -1,3 +1,4 @@
+-- Pohled je aktualizovatelny
 CREATE VIEW Napoje AS
 SELECT ZBOZ.NAZ, ZBOZ.KAT, ZBOZ.JCEN, ZBOZ.JEDN, ZBOZ.SKLAD
 FROM dbo.ZBOZ 
