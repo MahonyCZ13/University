@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>Smenarna</title>
+		<link rel="stylesheet" href="styles.css">
+		<script type="text/javascript">
+
+			function DostatKurz(){
+				
+				var amount = document.forms[0].mnozstvi.value;
+				var from = document.forms[0].from.value;
+				var to = document.forms[0].to.value;
+				
+				var CZK = new Array();
+                CZK['NOK'] = 0.400;
+				CZK['EUR'] = 0.037;
+				CZK['SEK'] = 0.380;
+				CZK['CZK'] = 1.000;
+
+                var NOK = new Array();
+                NOK['CZK'] = 2.250;
+				NOK['EUR'] = 0.096;
+				NOK['SEK'] = 0.970;
+				NOK['NOK'] = 1.000;
+                
+				var EUR = new Array();
+                EUR['CZK'] = 25.910;
+				EUR['NOK'] = 10.450;
+				EUR['SEK'] = 10.060;
+				EUR['EUR'] = 1.000;
+				
+				var SEK = new Array();
+				SEK['CZK'] = 2.300;
+				SEK['NOK'] = 1.030;
+				SEK['EUR'] = 0.099;
+				SEK['SEK'] = 1.000;
+
+				switch(from){
+					case "EUR":
+						var vysledek = amount * EUR[to] + " " + to;
+					break;
+					case "CZK":
+						var vysledek = amount * CZK[to] + " " + to;
+					break;
+					case "NOK":
+						var vysledek = amount * NOK[to] + " " + to;
+					break;
+					case "SEK":
+						var vysledek = amount * SEK[to] + " " + to;
+					break;
+					default:
+						var vysledek = "To tedy nevim!";
+				}
+
+                alert(vysledek);
+			}
+		</script>
+	</head>
+	<body>
+
+		<h1>Směnárna</h1>
+		<table border="1">
+			<caption>Kurzovní lístek</caption>
+			<tr>
+				<th>Měna</th>
+				<th>Nákup</th>
+				<th>Prodej</th>
+			</tr>
+			<tr>
+				<td>EUR</td>
+				<td>25.91</td>
+				<td>26.40</td>
+			</tr>
+			<tr>
+				<td>NOK</td>
+				<td>2.25</td>
+				<td>2.50</td>
+			</tr>
+			<tr>
+				<td>SEK</td>
+				<td>2.30</td>
+				<td>2.70</td>
+			</tr>
+		</table>
+		<h3>Online výpočet</h3>	
+		<form action="smenarna.html" onsubmit="DostatKurz();return false;">
+			Kolik chcete vyměnit: <input type="text" name="mnozstvi"><br>
+			<select name="from">
+				<option>CZK</option>
+				<option>NOK</option>
+				<option>EUR</option>
+				<option>SEK</option>
+			</select>
+			<select name="to">
+                <option>CZK</option>
+                <option>NOK</option>
+				<option>EUR</option>
+				<option>SEK</option>
+            </select><br>
+			<input type="submit" value="Vypočítej"><br>
+		</form>
+	</body>
+</html>
