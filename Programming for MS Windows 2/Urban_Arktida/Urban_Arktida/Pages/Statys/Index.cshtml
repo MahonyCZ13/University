@@ -1,0 +1,48 @@
+﻿@page
+@model Urban_Arktida.Pages.Statys.IndexModel
+
+@{
+    ViewData["Title"] = "Severské státy";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Staty[0].Nazev)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Staty[0].Rozloha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Staty[0].Obyvatelstvo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Staty) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazev)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rozloha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obyvatelstvo)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Cid">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Cid">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Cid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

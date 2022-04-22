@@ -1,0 +1,60 @@
+﻿@page
+@model Urban_Arktida.Pages.Mestys.IndexModel
+
+@{
+    ViewData["Title"] = "Severská Města";
+}
+
+<h1>Severská Města</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Mesta[0].Nazev)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mesta[0].Rozloha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mesta[0].Obyvatele)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mesta[0].Temp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mesta[0].C)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Mesta) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazev)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rozloha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obyvatele)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.C.Cid)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Mid">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Mid">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Mid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

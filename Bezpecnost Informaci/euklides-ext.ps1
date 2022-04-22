@@ -1,8 +1,8 @@
 Write-Host "Algoritmus: Euklides - Rozsireny" -ForegroundColor Yellow
 $x = 1
-$y = 1
-$a = 35
-$b = 15
+$y = 23701
+$a = 23392
+$b = 1015
 
 Write-Host "a = $a, b = $b, x = $x, y = $y"
 

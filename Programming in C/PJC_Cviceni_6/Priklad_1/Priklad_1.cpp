@@ -32,7 +32,7 @@
  *
  * =====================================================================================
  */
-
+#define _CRT_SECURE_NO_DEPRECATE
 #include<stdio.h>
 #include<malloc.h>
 
@@ -106,7 +106,7 @@ int main()
     
     int a = 2;
     int b = 3;
-    printf("\nA[2][3] = %d\n", matice[a][b]);
+    printf("\nA[2][3] = %d\n", matice[a][&b]);
 
     // Vypis matice na obrazovku
     for (i = 0; i < n; i++)

@@ -8,32 +8,7 @@
 	<body>
 		<h1 class="titulek">Úvod</h1>
 		<h2>Co je to vlastně Arktida</h2>
-		<p>Arktida je název pro polární oblast okolo severního pólu. Název pochází z řeckého αρκτος (arktos) – medvěd a vztahuje se k souhvězdí Velká Medvědice a Malého Medvěda v blízkosti severního nebeského pólu. Oblast je tvořená Severním ledovým oceánem pokrytým mořským ledem, který každoročně částečně roztává a rozpadá se na plovoucí kry, a severními oblastmi a ostrovy Ruska, Kanady, USA a skandinávských zemí (včetně Grónska), kde jsou oblasti ledovců, věčně zmrzlé půdy a tundry. Na rozdíl od Antarktidy v okolí jižního pólu není Arktida světadílem. Polární oblasti představují specifický biotop. Typickým arktickým endemitním zvířetem je lední medvěd, naopak zde nežijí antarktičtí tučňáci.<sup><a href="#reference1">[1]</a></sup></p>
-		<?php 
-            $link = mysqli_connect('localhost', 'root', '', 'arktida');
-            if (!$link) {
-                die('Could not connect: ' . mysqli_error());
-            }
-            else {
-                echo 'Connected successfully'.'<br>';
-            }
-            
-            $sql = "SELECT * FROM `mesta`";
-            $result = mysqli_query($link, $sql);
-            
-            if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result))
-                {
-                    $temp = (int)$row['temp'];
-                    echo 'ID: ' . $row["mid"] . ' Mesto: ' . $row["nazev"] . ' temp: ' . $temp . '<br>';
-                }
-            }
-            else
-            {
-                echo '0 vysledku';
-            }
-            mysqli_close($link);
-        ?>
+		<p>Arktida je název pro polární oblast okolo severního pólu. Název pochází z řeckého αρκτος (arktos) – medvěd a vztahuje se k souhvězdí Velká Medvědice a Malého Medvěda v blízkosti severního nebeského pólu. Oblast je tvořená Severním ledovým oceánem pokrytým mořským ledem, který každoročně částečně roztává a rozpadá se na plovoucí kry, a severními oblastmi a ostrovy Ruska, Kanady, USA a skandinávských zemí (včetně Grónska), kde jsou oblasti ledovců, věčně zmrzlé půdy a tundry. Na rozdíl od Antarktidy v okolí jižního pólu není Arktida světadílem. Polární oblasti představují specifický biotop. Typickým arktickým endemitním zvířetem je lední medvěd, naopak zde nežijí antarktičtí tučňáci.<sup><a href="#reference1">[1]</a></sup></p>			
         <h2>Detailní pohled</h2>
 			<table cellspacing="0">
 			<tr>

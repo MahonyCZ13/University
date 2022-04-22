@@ -1,0 +1,44 @@
+﻿@page
+@model Urban_Arktida.Pages.Statys.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Staty</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Staty.Nazev" class="control-label"></label>
+                <input asp-for="Staty.Nazev" class="form-control" />
+                <span asp-validation-for="Staty.Nazev" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Staty.Rozloha" class="control-label"></label>
+                <input asp-for="Staty.Rozloha" class="form-control" />
+                <span asp-validation-for="Staty.Rozloha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Staty.Obyvatelstvo" class="control-label"></label>
+                <input asp-for="Staty.Obyvatelstvo" class="form-control" />
+                <span asp-validation-for="Staty.Obyvatelstvo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

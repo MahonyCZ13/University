@@ -1,0 +1,53 @@
+﻿@page
+@model Urban_Arktida.Pages.Mestys.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Mesta</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Mesta.Cid" class="control-label"></label>
+                <select asp-for="Mesta.Cid" class ="form-control" asp-items="ViewBag.Cid"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mesta.Nazev" class="control-label"></label>
+                <input asp-for="Mesta.Nazev" class="form-control" />
+                <span asp-validation-for="Mesta.Nazev" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mesta.Rozloha" class="control-label"></label>
+                <input asp-for="Mesta.Rozloha" class="form-control" />
+                <span asp-validation-for="Mesta.Rozloha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mesta.Obyvatele" class="control-label"></label>
+                <input asp-for="Mesta.Obyvatele" class="form-control" />
+                <span asp-validation-for="Mesta.Obyvatele" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mesta.Temp" class="control-label"></label>
+                <input asp-for="Mesta.Temp" class="form-control" />
+                <span asp-validation-for="Mesta.Temp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

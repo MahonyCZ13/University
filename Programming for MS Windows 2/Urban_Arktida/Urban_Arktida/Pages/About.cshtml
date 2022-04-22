@@ -1,0 +1,88 @@
+﻿@page
+@* @model Urban_Arktida.Pages.AboutModel *@
+@model Urban_Arktida.Pages.Mestys.IndexModel
+
+@{
+    ViewData["Title"] = "O webu";
+}
+
+<div class="align-content-center">
+    <h1>O tomto mrazivém webu</h1>
+    <p>Jedná se o zobrazení informací z databáze. Jsou zde severské státy a k nim jsou napojena města.</p>
+    <p>Vyberte město:</p>
+    <select name="mesto" value="">
+    @foreach(var mesta in Model.Mesta)
+    {
+        <option value="@Html.DisplayFor(modelItem => mesta.Nazev)">@Html.DisplayFor(modelItem => mesta.Nazev)</option>
+    }
+    </select>
+    <br />
+    <h2>Tabulka měst a jejich průměrná teplota</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                Název
+            </th>
+            <th>
+                Průměrná roční teplota
+            </th>
+            <th>
+                Stát
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var temp in Model.Mesta)
+            {
+                string var_stat;
+                switch (temp.C.Cid)
+                {
+                    case 1:
+                        var_stat = "Norway.png";
+                        break;
+                    case 2:
+                        var_stat = "Sweden.png";
+                        break;
+                    case 3:
+                        var_stat = "Finland.png";
+                        break;
+                    case 4:
+                        var_stat = "Denmark.png";
+                        break;
+                    case 5:
+                        var_stat = "Canada.png";
+                        break;
+                    case 6:
+                        var_stat = "Russia.png";
+                        break;
+                    case 7:
+                        var_stat = "Greenland.png";
+                        break;
+                    case 8:
+                        var_stat = "Iceland.png";
+                        break;
+                    case 9:
+                        var_stat = "USA.png";
+                        break;
+                    default:
+                        var_stat = "404.png";
+                        break;
+
+                }
+                <tr>
+                   <td>
+                       @Html.DisplayFor(modelItem => temp.Nazev)
+                   </td>
+                   <td>
+                       @Html.DisplayFor(modelItem => temp.Temp)°C
+                   </td>
+                   <td>
+                       <img src="~/images/@var_stat" width="50px" >
+                   </td>
+               </tr>
+            }
+        </tbody>
+    </table>  
+</div>

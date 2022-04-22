@@ -23,17 +23,10 @@
  *
  * =====================================================================================
  */
-
+#define _CRT_SECURE_NO_DEPRECATE
 #include<stdio.h>
 #include<stdlib.h>
- // Test Function
- /*
- int DoIt(char* first, char* second, int one, int two)
-  {
-     printf("%s and %s | %d and %d\n", first, second, one, two);
-     return 0;
- }
- */
+ 
 void ErrorHandler(int ex)
 {
     switch (ex)
@@ -42,51 +35,47 @@ void ErrorHandler(int ex)
     case 11: printf("Chyba pri otevirani souboru. Pouzijte parametry kompilatoru pro vetsi podrobnosti.\n");
     default: printf("Genericka chyba. Vyuzijte vystupu na konzoli.\n");
     }
-
-    //return 0;
 }
 
 void ProcessFile(char* path)
 {
     FILE* myFile;
     int c;
-    char* fileContent;
-    long length;
+    char* fileContent = (char *) malloc(555);
+    long length = 0;
     char c1;
-    int i = 0;
+    int i = 1;
+    int j = 0;
 
-    if (!(myFile = fopen(path, "rw"))) ErrorHandler(11);
-    /*
-    while((c = getc( myFile)) != EOF) fileContent = putchar(c);
+    // Overime si dostupnost souboru. Pokud selze, posleme si vlastni chybu
+    if (!(myFile = fopen(path, "r"))) ErrorHandler(11);
 
-    //fclose(myFile);
-    if(myFile)
-    {
+    printf("Originalni string: \n");
 
-        fseek(myFile, 0 , SEEK_END);
-        length = ftell(myFile);
-        //fseek(myFile, 0, SEEK_SET);
-        fileContent = malloc(length);
-        if(fileContent)
-        {
-            fread(fileContent, 1, length, myFile);
-        }
-        fclose(myFile);
-    }*/
-
+    // Iterujeme celym souborem znak po znaku
     while ((c1 = fgetc(myFile)) != EOF)
     {
         fileContent[i] = c1;
         printf("%c", c1);
+        length += 1;
         i = i + 1;
     }
+    printf("\nObraceny string:\n");
+    j = length;
 
-    //printf("%s", fileContent);
+    // Nyni vypiseme soubor na obrazovku
+    for (i = 0; i <= length; i++)
+    {
+        printf("%c", fileContent[j]);
+        j--;
+    }
+    printf("\n");
 }
 int main(int argc, char** argv)
 {
-    char* path;
+    char* path{};
 
+    // Zpracujeme aurgumenty prikazove radky
     while (*++argv && **argv == '-')
     {
         switch (argv[0][1])
@@ -94,13 +83,10 @@ int main(int argc, char** argv)
         case 'i': path = argv[1]; break;
         default: ErrorHandler(10);
         }
-
     }
 
     if (path == NULL) return 0;
     else ProcessFile(path);
-    //DoIt(argv[0], argv[1], w, o);
-
 
     return 0;
 }

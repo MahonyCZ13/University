@@ -1,3 +1,4 @@
+import math
 class Color:
    PURPLE = '\033[95m'
    CYAN = '\033[96m'
@@ -16,17 +17,34 @@ print(f"{Color.BOLD}---------------------------------{Color.END}\n")
     
 def euklidExt(a, b):
  
-    if a == 0 : 
-        return b, 0, 1
-            
-    gcd, x1, y1 = euklidExt(b%a, a)
-    
-    x = y1 - (b/a) * x1
-    y = x1
-    
-    return gcd, x, y
-     
+    if b == 0 : 
+        d = a
+        x = 1
+        y = 0
+    x2 = 1
+    x1 = 0
+    y1 = 1
+    y2 = 0
+    while b > 0:
+        q = math.floor(a/b)
+        r = a - q * b
+        x = x2 - q * x1
+        y = y2 - q * y1
+        a = b
+        b = r
+        x2 = x1
+        x1 = x
+        y2 = y1
+        y1 = y
 
-a, b = 35,15
-g, x, y = euklidExt(a, b)
-print(f"{Color.GREEN}NSD =", g, f"{Color.CYAN} x =", x, " y =", y,f"{Color.END}\n")
+    d = a
+    x = x2
+    y = y2
+
+    return d, x, y
+
+a = input("Zadejte hodnotu pro 'a': ")
+b = input("Zadejte hodnotu pro 'b': ")
+
+d, x, y = euklidExt(int(a), int(b))
+print(f"\n{Color.GREEN}NSD =", d, f"{Color.CYAN} Inverzni prvek k 'a' je x =", x, " Inverzni prvek k 'b' je y =", y,f"{Color.END}\n")

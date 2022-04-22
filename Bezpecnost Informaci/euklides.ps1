@@ -1,7 +1,7 @@
 Write-Host "Algoritmus: Euklides" -ForegroundColor Yellow
 
-$x = 41224
-$y = 22693
+$x = 40320
+$y = 7597
 
 Write-Host "x = $x, y = $y"
 
