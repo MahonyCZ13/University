@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="RMSA"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/textView1" />
+    <TextView
+        android:text="Cislo"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="160.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/CisloRMSA" />
+    <TextView
+        android:text="Exponent"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="161.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/exponentRMSA"
+        android:layout_marginRight="0.0dp" />
+    <TextView
+        android:text="Modulo"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="158.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/moduloRMSA" />
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vysledekRMSA" />
+    <Button
+        android:text="Vypocti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vypocetRMSA" />
+
+</LinearLayout>

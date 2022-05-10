@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Eukliduv algoritmus"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/textView1" />
+    <TextView
+        android:text="Cislo A"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="127.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="93.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/cisloA"
+        />
+    <TextView
+        android:text="Cislo B"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="92.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/cisloB" />
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vysledek" />
+    <Button
+        android:text="Vypocitej"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vypocet" />
+
+</LinearLayout>
