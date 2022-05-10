@@ -56,11 +56,28 @@ namespace AlgorithmsApp
             int a = Convert.ToInt32(cisloA.Text);
             cisloB = FindViewById<TextView>(Resource.Id.cisloB);
             int b = Convert.ToInt32(cisloB.Text);
+            int c = 1;
 
-            int vysledek = a * b;
+            while(c != 0)
+            {
+                c = a % b;
+                a = b - c;
+
+                if(c == 0)
+                {
+                    c = b;
+                    break;
+                }
+                else
+                {
+                    b = c;
+                }
+            }
+
+            int vysledek = b;
 
             euVysledek = FindViewById<TextView>(Resource.Id.vysledek);
-            euVysledek.Text = "NSD je " + vysledek.ToString();
+            euVysledek.Text = "NSD = " + vysledek.ToString();
 
             //Model hist = new Model();
 
