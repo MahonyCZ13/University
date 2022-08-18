@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="Eukliduv algoritmus"
+        android:text="@string/euklid-popis"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:id="@+id/textView1" />
+        android:id="@+id/textView1"
+        android:layout_marginBottom="34.0dp" />
     <TextView
         android:text="Cislo A"
         android:textAppearance="?android:attr/textAppearanceMedium"

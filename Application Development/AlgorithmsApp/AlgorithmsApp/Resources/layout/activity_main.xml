@@ -7,17 +7,25 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
+    <TextView
+        android:text="@string/home-str"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="fill_parent"
+        android:layout_height="76.0dp"
+        android:id="@+id/textView1" />    
     <Spinner
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textView1"
         android:id="@+id/spinner1"
         android:spinnerMode="dialog"
         android:prompt="@string/algo_choose"/>
     <Button
         android:id="@+id/button1"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/spinner1"
         android:text="@string/button_text"
         />
+    
 </RelativeLayout>

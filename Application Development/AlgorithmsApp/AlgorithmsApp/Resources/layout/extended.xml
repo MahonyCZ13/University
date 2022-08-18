@@ -4,15 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="Rozsireny eukliduv algoritmus"
+        android:text="@string/euklid-ext-str"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:id="@+id/textView1" />
+        android:id="@+id/textView1"
+        android:layout_marginBottom="65.5dp" />
     <TextView
-        android:text="Cislo A"
+        android:text="Číslo A"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/cisloAEXT" />
     <TextView
-        android:text="Medium Text"
+        android:text="Číslo B"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +35,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/cisloBEXT" />
     <TextView
-        android:text="Large Text"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

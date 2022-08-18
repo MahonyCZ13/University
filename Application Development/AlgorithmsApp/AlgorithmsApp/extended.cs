@@ -13,7 +13,7 @@ using System.Text;
 
 namespace AlgorithmsApp
 {
-    [Activity(Label = "extended")]
+    [Activity(Label = "Eukliduv rozsireny algoritmus")]
     public class extended : AppCompatActivity
     {
         private Button btnVypocet;

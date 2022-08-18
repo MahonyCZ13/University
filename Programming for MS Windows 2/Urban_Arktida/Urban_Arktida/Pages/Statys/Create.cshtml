@@ -2,12 +2,12 @@
 @model Urban_Arktida.Pages.Statys.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Vytvoř záznam";
 }
 
-<h1>Create</h1>
+<h1>Vytvoř záznam</h1>
 
-<h4>Staty</h4>
+<h4>Státy</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -29,14 +29,14 @@
                 <span asp-validation-for="Staty.Obyvatelstvo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Uložit" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">Zpět na seznam</a>
 </div>
 
 @section Scripts {

@@ -12,7 +12,7 @@ using System.Text;
 
 namespace AlgorithmsApp
 {
-    [Activity(Label = "rmsa")]
+    [Activity(Label = "Modularni umocnovani")]
     public class rmsa : AppCompatActivity
     {
         private Button btnVypocet;
@@ -51,15 +51,18 @@ namespace AlgorithmsApp
         }
         public double[] ToBinary(int expo)
         {
-            double[] pole = {};
+            
+            double[] pole = new double[8];
             int y = 0;
-
+            int i = 0;
             while(expo >= 1)
             {
                 y = expo;
                 expo = expo / 2;
+                pole[i] = (double)y % 2;
+                i++;
             }
-            pole.Append(Math.Floor((double)y % 2));
+            
 
             return pole;
         }
@@ -75,12 +78,12 @@ namespace AlgorithmsApp
                 {
                     if (i == 0) c = 1;
 
+                    b = (Math.Pow(cislo, c) % modular);
+
+                    total *= b;
                 }
                 else c = Math.Pow(2,i);
-
-                b = (Math.Pow(cislo, c) % modular);
-
-                total *= b;
+              
                 i++;
             }
 

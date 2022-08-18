@@ -16,7 +16,7 @@ using AlgorithmsApp.Data;
 
 namespace AlgorithmsApp
 {
-    [Activity(Label = "euklid")]
+    [Activity(Label = "Eukliduv algoritmus")]
     public class euklid : AppCompatActivity
     {
         private Button btnVypocet;

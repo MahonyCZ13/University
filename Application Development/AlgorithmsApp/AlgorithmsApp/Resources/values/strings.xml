@@ -1,11 +1,15 @@
 <resources>
-    <string name="app_name">AlgorithmsApp</string>
+    <string name="app_name">Algoritmy v kapse</string>
     <string name="action_settings">Settings</string>
-	<string name="button_text">Submit</string>
+	<string name="button_text">Vyber</string>
 	<string name="algo_choose">Vyberte Algoritmus</string>
-	<string-array name="algos">
-		<item>RMSA</item>
+	<string-array name="algos">		
 		<item>Euklides</item>
-		<item>Euklides Rozsireny</item>
+		<item>Euklides - Rozšířený</item>
+		<item>RMSA - Mocninové dělení</item>
 	</string-array>
+	<string name="home-str">Vítejte v aplikaci algoritmů. Vyberte z nabídky, co potřebujete vypočítat!</string>
+	<string name="rmsa-str">Modulární umocňování je umocňování prováděné v rámci modulární aritmetiky. Využívá se zejména v kryptografii a obecněji v informatice.</string>
+	<string name="euklid-ext-str">Je to algoritmus, kterým lze nalézt Bézoutovu rovnost, neboli vyjádření největšího společného dělitele dvou čísel jejich lineární kombinací.</string>
+	<string name="euklid-popis">Je to algoritmus, kterým lze určit největší společný dělitel dvou přirozených čísel, tedy největší číslo takové, že beze zbytku dělí obě čísla.</string>
 </resources>

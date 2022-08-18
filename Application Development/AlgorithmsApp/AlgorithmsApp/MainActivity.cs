@@ -57,12 +57,12 @@ namespace AlgorithmsApp
                     Intent intent = new Intent(this, typeof(euklid));
                     StartActivity(intent);
                     break;
-                case "Euklides Rozsireny":
+                case "Euklides - Rozšířený":
                     SetContentView(Resource.Layout.extended);
                     Intent intent2 = new Intent(this, typeof(extended));
                     StartActivity(intent2);
                     break;
-                case "RMSA":
+                case "RMSA - Mocninové dělení":
                     SetContentView(Resource.Layout.rmsa);
                     Intent intent3 = new Intent(this, typeof(rmsa));
                     StartActivity(intent3);

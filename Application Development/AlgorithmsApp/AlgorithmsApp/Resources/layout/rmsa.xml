@@ -4,15 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="RMSA"
+        android:text="@string/rmsa-str"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100.0dp"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:id="@+id/textView1" />
+        android:id="@+id/textView1"
+        android:layout_marginBottom="36.0dp" />
     <TextView
-        android:text="Cislo"
+        android:text="Číslo"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

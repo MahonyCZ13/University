@@ -2,13 +2,13 @@
 @model Urban_Arktida.Pages.Mestys.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detail města";
 }
 
-<h1>Details</h1>
+<h1>Detail města</h1>
 
 <div>
-    <h4>Mesta</h4>
+    <h4>Města</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -44,6 +44,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Mesta.Mid">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Mesta.Mid">Upravit</a> |
+    <a asp-page="./Index">Zpět na seznam</a>
 </div>
