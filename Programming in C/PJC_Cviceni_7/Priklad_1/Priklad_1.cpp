@@ -117,7 +117,7 @@ int main(int argc, char* argv[])
     printf("var_n: %d\n", n);
     */
     int (*matice)[m][n];
-    matice = (int (*)[m][n])calloc(m*n, sizeof(int));
+    matice = (int (*)[m][n])malloc(m*n * sizeof(int));
     
     // Naplneni matice
     /*
@@ -129,8 +129,16 @@ int main(int argc, char* argv[])
     */
     
     for(int i = 0; i < n * m; i++)
-        (*matice)[i/n][i%n] = i + 1;
-    
+    {
+        //(*matice)[i/n][i%n] = i + 1;
+        (*matice)[i/n][i%n] = rand() % 100;
+    }
+    // Vypis matice na obrazovku
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++)
+            printf("%d ", (*matice)[i][j]);
+        printf("\n");
+    }
     // Inicializace promennych pro testovani
 //    int x = 6;
 //    int y = 7;
@@ -161,10 +169,12 @@ int main(int argc, char* argv[])
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++)
             {
-                int nsdVysledek = vypoctiNSD(i, j);
-                int vysledek = vypocti(i, j, nsdVysledek);
+                int previousX = (*matice)[i][j];
+                int previousY = (*matice)[j][i];
+                int nsdVysledek = vypoctiNSD(previousX, previousY);
+                int vysledek = vypocti(previousX, previousY, nsdVysledek);
                 (*matice)[i][j] = vysledek;
-                printf("NSD pro usporadanou dvojici %d a %d je %d\n", i, j, (*matice)[i][j]);
+                printf("NSD pro usporadanou dvojici %d a %d je %d\n", previousX, previousY, (*matice)[i][j]);
             }
             printf("\n");
         }
@@ -177,9 +187,11 @@ int main(int argc, char* argv[])
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++)
             {
-                int vysledek = vypocti(i, j);
+                int previousX = (*matice)[i][j];
+                int previousY = (*matice)[j][i];
+                int vysledek = vypocti(previousX, previousY);
                 (*matice)[i][j] = vysledek;
-                printf("NSD pro usporadanou dvojici %d a %d je %d\n", i, j, (*matice)[i][j]);
+                printf("NSD pro usporadanou dvojici %d a %d je %d\n", previousX, previousY, (*matice)[i][j]);
             }
             printf("\n");
         }
