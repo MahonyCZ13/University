@@ -1,28 +1,3 @@
-﻿/*
- * =====================================================================================
- *
- *       Filename:  priklad_1.c
- *
- *    Description:  Napište program, který obrátí začátek a konec souboru. Obrátí se pořadí všech znaků v souboru, celý soubor bude pozpátku.  Parametry programu: -i input. Velikost souboru může být větší než vaše RAM a dokonce i větší než 1/2 disku.
- *
- *        Remarks:  Tento zdrojovy kod jsem vypracoval zcela samostatne bez cizi pomoci
- *                  Neokopiroval jsem ani neopsal jsem cizi zdrojove kody
- *                  Nikdo me pri vypracovani neradil
- *                  Pokud nektery radek porusuje toto pravidlo je oznacen komentarem
- *                  NENI MOJE TVORBA
- *                  Poruseni techto pravidel se povazuje za podvod, ktery lze potrestat VYLOUCENIM ZE STUDIA
- *                  Petr Maronek, 36456
- *
- *        Version:  0.1
- *        Created:  15/01/2021 16:11:04
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Petr Maronek, 36456
- *   Organization:  VSFS
- *
- * =====================================================================================
- */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -33,15 +8,6 @@ int alocateMatrix(int m, int n)
     int (*matice)[m][n];
     matice = (int (*)[m][n])calloc(m*n, sizeof(int));
     return (*matice)[m][n];
-}
-
-int saveToMatrix(int x, int y)
-{
-    int success = 0;
-    
-    //(*matice)[x][y] = success;
-    
-    return success;
 }
 
 int nsn(int x, int y, int nsd)
@@ -60,9 +26,9 @@ void ErrorHandler(int ex)
 {
     switch (ex)
     {
-    case 10: printf("Parametr -f je povinny. Zadejte cestu k textovemu souboru, ktery chcete zpracovat.\n");
-    case 11: printf("Chyba pri otevirani souboru. Pouzijte parametry kompilatoru pro vetsi podrobnosti.\n");
-    default: printf("Genericka chyba. Vyuzijte vystupu na konzoli.\n");
+        case 10: printf("Parametr -f je povinny. Zadejte cestu k textovemu souboru, ktery chcete zpracovat.\n");
+        case 11: printf("Chyba pri otevirani souboru. Pouzijte parametry kompilatoru pro vetsi podrobnosti.\n");
+        default: printf("Genericka chyba. Vyuzijte vystupu na konzoli.\n");
     }
 }
 
@@ -95,7 +61,10 @@ int main(int argc, char* argv[])
         printf("%s\n", argv[1]);
         switch (argv[0][1])
         {
-            case 'f': path = argv[1]; fileSpecified = 1; break;
+            case 'f':
+                path = argv[1];
+                fileSpecified = 1;
+                break;
             case 's': pnsn = 1; break;
             case 'd': pnsd = 1; break;
             case 'n': t = argv[1]; break;
