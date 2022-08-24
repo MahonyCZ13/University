@@ -47,6 +47,7 @@ int main()
 		for (j = 1; j <= n + 1; j++)
 		{
 			printf("a[%d][%d] = ", i, j);
+			// Zpusob zobrazeni double promenne nalezeno v oficialni dokumentaci C
 			scanf_s("%lf", &A[i][j]);
 		}
 	}
