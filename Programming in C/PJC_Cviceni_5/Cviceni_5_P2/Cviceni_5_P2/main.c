@@ -1,9 +1,29 @@
-//
-//  main.c
-//  Cviceni_5_P2
-//
-//  Created by Maronek, Petr on 23.08.2022.
-//
+/*
+ * =====================================================================================
+ *
+ *       Filename:  priklad_2.c
+ *
+ *    Description:  2.	Napište program, který pomocí knihovní funkce qsort setřídí řetězce, které mu jsou zadány jako parametry programu. Výstup se vypisuje na obrazovku.
+ *
+ *        Remarks:  Tento zdrojovy kod jsem vypracoval zcela samostatne bez cizi pomoci
+ *                  Neokopiroval jsem ani neopsal jsem cizi zdrojove kody
+ *                  Nikdo me pri vypracovani neradil
+ *                  Pokud nektery radek porusuje toto pravidlo je oznacen komentarem
+ *                  NENI MOJE TVORBA
+ *                  Poruseni techto pravidel se povazuje za podvod, ktery lze potrestat VYLOUCENIM ZE STUDIA
+ *                  Petr Maronek, 36456
+ *
+ *        Version:  0.1
+ *        Created:  15/01/2021 16:11:04
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Petr Maronek, 36456
+ *   Organization:  VSFS
+ *
+ * =====================================================================================
+ */
+
 
 #include <stdio.h>
 #include <stdlib.h>
