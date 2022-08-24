@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1661171939 source:/home/petr/.local/src/University/Programming in C/Cviceni_6/Cviceni_6_CB/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
