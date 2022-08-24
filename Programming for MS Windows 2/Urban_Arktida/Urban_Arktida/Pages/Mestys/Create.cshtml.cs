@@ -26,9 +26,8 @@ namespace Urban_Arktida.Pages.Mestys
 
         [BindProperty]
         public Mesta Mesta { get; set; }
-
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
+    
+        // Vlakno na vraceni vysledku a navigaci
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
