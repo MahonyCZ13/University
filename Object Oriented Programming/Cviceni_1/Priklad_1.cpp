@@ -19,11 +19,11 @@ int main()
 
     if(!pytlik.zije())
     {
-        printf("Tak to je konec!!!\n");
+        printf("Pytlik sel spat :(\n");
         return -1;
     }
 
-    printf("Pytlik papa!\n");
+    printf("Pytlik znovu papa!\n");
     pytlik.jez(1);
 
     printf("Pytlik je opet na zachode...\n");
@@ -31,8 +31,8 @@ int main()
 
     if (!pytlik.jez(1)) 
     {
-        printf("Pytlik uz nic nespapa...\n");
-        //return -2;
+        if(!pytlik.zije()) printf("Pytlik uz nic nespapa :( \n");
+        else return -2;
     }
 
     Student Petr;
