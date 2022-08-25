@@ -13,5 +13,5 @@ int Student::hodnoceni(int znamka)
 int Student::zapis(char* predmety)
 {
 	char* zapsane = predmet;
-
+	return 1;
 }
