@@ -3,7 +3,8 @@
 int Zvire::jez(int jidlo)
 {
     if (!zije()) return 0;
-    starni(2);
+    int akt = starni(2);
+    printf("Stari: %d\n", akt);
     return zaludek += jidlo;
 }
 

@@ -23,8 +23,11 @@ int main()
         return -1;
     }
 
+    printf("Pytlik papa!\n");
+    pytlik.jez(1);
+
     printf("Pytlik je opet na zachode...\n");
-    pytlik.vymesuj(3);
+    pytlik.vymesuj(4);
 
     if (!pytlik.jez(1)) 
     {
