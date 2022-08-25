@@ -1,30 +1,44 @@
 #include <iostream>
 #include "zvire.h"
+#include "zvire.cpp"
 #include "student.h"
-
-using namespace std;
+#include "student.cpp"
 
 int main()
 {
-    Zvire pytlik; // Bezparametrova
-    Zvire moucha(20); // Parametrova
-    Zvire beruska(pytlik); // Copy konstruktor
+    //Zvire moucha(20); // Parametrova
+    //Zvire beruska(pytlik); // Copy konstruktor
 
+    Zvire pytlik; // Bezparametrova
+
+    printf("Pytlik papa!\n");
     pytlik.jez(5);
+
+    printf("Pytlik je na zachode...\n");
     pytlik.vymesuj(3);
 
-    if (!pytlik.zije()) return -1;
+    if(!pytlik.zije())
+    {
+        printf("Tak to je konec!!!\n");
+        return -1;
+    }
 
-    pytlik.vymesuj(4);
+    printf("Pytlik je opet na zachode...\n");
+    pytlik.vymesuj(3);
 
-    if (!pytlik.jez(1)) return -2;
+    if (!pytlik.jez(1)) 
+    {
+        printf("Pytlik uz nic nespapa...\n");
+        //return -2;
+    }
 
-    /* Student Petr;
+    Student Petr;
 
-    int hotovo = Petr.hodnoceni(4);
+    int znamka = 4;
+    int hotovo = Petr.hodnoceni(znamka);
 
-    if (hotovo == 1) printf("Student splnil se znamkou 2");
-    else  */printf("Student predmet nesplnil");
+    if (hotovo == 1) printf("Student splnil se znamkou %d\n", znamka);
+    else  printf("Student predmet nesplnil\n");
 
     return 0;
 }
