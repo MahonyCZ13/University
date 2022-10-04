@@ -3,6 +3,7 @@
 #include "zvire.cpp"
 #include "student.h"
 #include "student.cpp"
+#include <string>
 
 int main()
 {
@@ -37,9 +38,21 @@ int main()
 
     Student Petr;
 
+    std::string* predmety[] = {};
+
     int znamka = 4;
     int hotovo = Petr.hodnoceni(znamka);
+    predmety[0] = Petr.zapis("Matematika");
+    predmety[1] = Petr.zapis("Cesky Jazyk");
 
+    int delka = sizeof(predmety)/sizeof(predmety[0]);
+
+    for(int i = 0; i <= delka; i++)
+    {
+        printf("Predmet cislo %d: %s\n", i, predmety[i]);
+    }
+
+    //bla<string> = new string[12];
     if (hotovo == 1) printf("Student splnil se znamkou %d\n", znamka);
     else  printf("Student predmet nesplnil\n");
 

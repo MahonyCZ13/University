@@ -1,14 +1,16 @@
 #pragma once
 
+#include <string>
+
 class Student
 {
 	public:
 		int hodnoceni(int znamka);
-		int zapis(char* predmety);
+		std::string* zapis(std::string predmet);
 
 	private:
 		int znamka;
-		char* predmet;
-		char* predmety[];
+		std::string predmet;
+		//std::string predmety[];
 };
 
