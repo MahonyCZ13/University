@@ -1,2 +1,0 @@
-/home/petr/.local/src/University/CPPin21Days/week1/day2/main.cpp
-/home/petr/.local/src/University/CPPin21Days/week1/day1/main.cpp
