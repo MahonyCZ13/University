@@ -22,3 +22,9 @@ This is my repository to store all the University assignments.
 - Object Oriented Programming (C++)
 - Programming for MS Windows 2 (C#)
 - Application programming (PHP, HTML, MySQL)
+
+## Fifth semester
+
+- Networking
+- ICT systems 1
+- Game Design
