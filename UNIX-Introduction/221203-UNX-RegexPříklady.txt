@@ -1,0 +1,109 @@
+co jsou regularni vyrazy neboli regex je textový řetězec 
+v regulárním jazyce, který slouží jako vzor pro vyhledávání textu 
+
+využití - vyhledavaní v textu, nebo manipulace z textem
+
+
+.   libovolný znak
+ps aux | grep '.'
+ps aux | grep 'r..t'
+
+\  odstraní speciální význam následujícího znaku
+ps aux | grep '\.'
+
+?  předchozí znak 0-1
+ps aux | grep '20\?' \\2, 20, 22
+
+*  předchozí znak 0-neomezeně // prazdny radek
+ps aux | grep '4*'   \\vsechny 4, i prazdne radky 0x4
+
++  předchozí znak 1-neomezeně
+ps aux | grep '4\+'   \\vsechny 4
+
+{n}  právě n-krát
+ps aux | grep '0\{2\}'   \\prave dve 0 zasebou
+
+{m,n} min m-krát, max n-krát
+ps aux | grep '0\{1,2\}'   \\1-2 0 zasebou
+
+{n,}  min n-krát, max neomezeně
+ps aux | grep '0\{1,\}'   \\1-neomezene 0 zasebou
+
+[abc]  jeden ze znaku
+ps aux | grep '[rot]'   \\vsechny znaky r,o nebo t
+
+[^abc]  všechny znaky kromě těchto
+ps aux | grep '[^rot]'   \\vsechny znaky krome r,o nebo t
+
+[a-b]  rozsah znaků, všechny malá písmena
+ps aux | grep '[a-c]'   \\vsechny znaky v rozmezi a-c -> a, b, c
+
+\s  bily znak, mezera
+ps aux | grep '\s0'   \\vsechny nuly ktere predchazi mezera
+
+\S  jiny nez bily znak
+ps aux | grep '\S0'  \\vsechny nuly ktere predchazi jiny znak nez mezera
+
+\d  libovolna cislice
+??
+
+\w  libovolny alfanumericky znak
+ps aux | grep '\w\s'   \\vsechny znaky za kterymi nasleduje mezera
+ps aux | grep '\w\+'   \\vsechny slova(alfanumerike retezce)
+ps aux | grep '\w\+\s'   \\vechny slova za kterymi nasleduje mezera
+
+\W  nealfanumericky znak
+ps aux | grep '\W'    \\vsechny neznaky
+ps aux | grep '\W\s'   \\vsechny neznaky za kterymi nasleduje mezera
+ps aux | grep '\W0'   \\vsechny neznaky za kterymi nasleduje 0
+
+^abc  na zacatku retezce
+ps aux | grep '^tomas.*'   \\vsechny radky zacinajici slovem tomas
+ps aux | grep '^\w\+'   \\prvni slovo na kazdem radku
+
+abc$  na konci retezce
+ps aux | grep '.*bash$'   \\vsechny radky ktery konci slovem bash
+ps aux | grep 'i\w\+$'   \\vsechny slova na konci ktery zacinaji pismenem i
+ps aux | grep '\w\+$'   \\vsechny slova na konci radku
+
+\babc  na zacatku slova
+ps aux | grep '\bi\w\+'   \\vsechny slova zacinajici pismenem i 
+
+abc\b  na konci slova
+ps aux | grep '\w\+t\b'   \\vsechny slova koncici pismenem t
+
+\Babc kdekoliv krome zacatku
+ps aux | grep '\B.'   \\vsechny znaky krome tech na zacatku slova
+grep '\B.' /etc/group
+grep '\B[a-z]' /etc/group   \\vsechny pismena krome tech na zacatku slova
+
+abc\B  kdekoliv krome konce slova
+grep '.\B' /etc/group   \\vsechny znaky krome posledniho znaku slova
+
+ab|c  oddeleni dilcich vyrazu
+grep '^sys\w\+\|^mes\w\+' /etc/group   \\vsechny slova zacinajici sys nebo mes
+
+a{b|c}  oddeleni dilcich subvyrazu
+??
+
+(ab)?c  subretezec na nejz lze aplikovat kvantifikator
+grep '\b\(sys\)\?t\w\+' /etc/group   \\vsechny slova ktere zacinaji sys nebo t
+
+(abc)$1 |  (abc)\1 subretezec na ktery se lze odkazovat
+grep '\b\(\w\)\w*\1\b' /etc/group   \\vsechny slova ktera zacinaji a konci stejnym znakem
+grep '\b\([a-z]\)[a-z]*\1\b' /etc/group   \\vsechny slova ktera zacinaji a konci stejnym pismenem
+
+
+unix
+\<  zacatek slova
+grep '\<d\w\+' /etc/group  \\vsechny slova zacinajici pismenem d
+
+\>  konec slova
+grep '\w\+d\>' /etc/group   \\vsechny slova koncici pismenem d
+
+
+greedy
+ps aux | grep -P '0.*0'   \\vsechno mezi dvemi 0
+
+lazy
+ps aux | grep -P '0.*?0'   \\vsechno mezi dvemi 0
