@@ -360,18 +360,125 @@
 
         \section*{Implementace a omezení}
         \subsection*{Konfigurace nových nastavení v rámci dodávaného softwaru}
+        S dodatečnou konfigurací dodávaného softwaru se pojí i jistá omezení,
+        která plynou z jeho podstaty. Nicméně nám software dovolí nastavit
+        znění emailových notifikací, jejich styly a aplikaci firemního
+        brandingu. Dále povoluje editaci takzvaných "politik", podle kterých
+        bude následně systém postupovat v rámci rozhodovacíh stromu. Politikou
+        zde chápeme set nastavení a omezení pro jednotlivé pracovní prostory.
+        
+        Pro přehlednou administraci řešení bude administrátorům k dispozici
+        portál, který bude vytvořen pomoci Microsoft PowerBI. Tento nástroj jsem
+        vybral hlavně proto, že umožňuje vytvářet frontendové řešení, které
+        nevyžaduje hluboké znalosti v programování a mohou si ho tak daní
+        administrátoři rozvíjet a spravovat sami. Protože je tento produkt opět
+        od společnosti Microsoft, je možné v něm definovat propojení s různými
+        službami ať už v rámci Office 365, či Azure cloud službami.
+        Administrátoři tak získají takřka instantní přehled o celém SharePoint a
+        Teams prostředí s tím, že je možné do budoucna celý portál rozšířit o
+        ostatní služby Microsoft Office.
 
         \subsection*{Vytvoření zázemí pro bezobslužné nasazení (Git, AzureDevOps)}
+        Pro co nejvíce možnou kontrolu nad jednotlivými nasazenými verzemi
+        musíme nejprve vytvořit prostředí, které bude splňovat veškeré
+        inženýrské i administrativní nároky. Pro účelu toho řešení využijeme
+        AzureDevOps (ADO) se systémem kontroly verzí zdrojového kódu Git.
+        Software ADO umožňuje vývojářům uchovávat kód na jednom místě a díky
+        integrované technologii GIT je také dosaženo kontroly nad jeho
+        jednotlivými verzemi. Pomocí integrovaných postupů na automatickou
+        kompilaci kódu a jeho následnému nasazení zajistíme firmě
+        auditovatelnost na té nejnižší úrovni řešení. Protože jeden z požadavků
+        mezinárodních standardů je používat v rámci vývoje softwaru různá
+        integrační prostředí (DEV, UAT, PRD), můžeme si v rámci systému GIT
+        nadefinovat různé postupy, jak tento bod splnit. Pro mé řešení využiji
+        možnosti vytváření vývojových větví, které se po úspěšném otestování v
+        jednotlivých vývojových prostředích budou přes schvalovací proces a
+        kontrole kódu integrovat do hlavní větve zdrojového kódu. ADO také
+        dovoluje psát technickou dokumentaci pomocí Markdown syntaxe, a poté
+        celý repositář publikovat jako „wiki“ stránky, kde je vše automaticky
+        přeloženo do stylů a formátování grafického dokumentu. Tvorba a uchování
+        dokumentace je však mimo rozsah této práce, a tudíž ji zde pouze
+        zmiňuji. Nemalou součástí celého řešení je také konfigurace CI/CD
+        (continuous integration/continuous deployment) pipeline (postupy). Ty
+        umožňují automaticky testovat integritu zdrojového kódu a pomáhají v něm
+        odchytit chyby již v rané fázi vývoje. Protože jsou agnostické vůči
+        programovacím jazykům a vývojovým prostředím, můžeme je využít i k
+        nasazení zkompilovaného řešení přímo do Azure cloudových služeb [7].
+        Tyto pipelines nakonfiguruji také pro jednotlivá vývojová prostředí pro
+        větší kontrolu nad vývojem. Celý proces vývoje a testování kódu bude
+        tedy zcela automatizované.
 
         \subsection*{Nasazení a konfigurace služeb}
+        Konfigurace infrastruktury je v tomto ohledu neméně důležitá. Celé
+        řešení bude využívat princip CaaC neboli Configuration as a Code
+        (Konfigurace přes zdrojový kód). Protože Microsoft Azure poskytuje
+        technologii ARM šablon, celá infrastruktura může být nasazena
+        automaticky, a dokonce s identickou konfigurací pro jednotlivá vývojová
+        prostředí. Opět zde využijeme Azure DevOps s jeho integrovanými postupy
+        pro nasazení řešení. Konkrétně v tomto případě využiji již zmínění
+        PowerShell. Protože má Microsoft detailně zdokumentované potupy, jak ARM
+        šablony vytvářet a používat, je tento směr nejméně zatěžující v rámci
+        údržby několika vývojových prostředí. Navíc můžeme ARM šablony
+        automaticky vygenerovat přímo v Azure portále a poté je pouze lehce
+        upravit, aby splňovaly naše potřeby.  
         
-        \subsection*{Omezení v rámci dodávaného software}
+        Nyní nastíním technologie, které budou zodpovědné za exekuci
+        jednotlivých procedur, které budou nepřímo kopírovat požadavky na systém
+        jako takový. Začnu  prostředím pro jednoduchou správu nad rozhodovacím
+        stromem. To znamená kdy a které funkce se budou vykonávat při konkrétním
+        scénáři. Zde využijeme Azure Data Factory (ADF). Jedná se o přehledné
+        grafické prostředí, které uživateli dovoluje vizuálně nakonfigurovat
+        postup (pipeline) akcí, které se v dané rozhodovací větvi vykoná. ADF je
+        veden jako nástroj pro zpracování „Big data“, a má tudíž zabudovanou
+        konektivitu do různých služeb v rámci Azure cloudu. Dovoluje nám také
+        přehledně nakonfigurovat síťové prvky, které poté implicitně zvýší
+        bezpečnost celého řešení.
 
-        \subsection*{Omezení v rámci cloudových služeb}
-        
+        \subsection*{Softwarová omezení}
+        Celková softwarová omezení se pevně váží s navrhovanou cloudovou
+        infrastrukturou. I když Microsoft přináší stále lepší podmínky pro
+        pžizpůsobení jednotliých služeb, stále se administrátoři i vývojáři musí
+        potýkat s hranicemi dodávaného softwaru. Velkou úlohu zde hrají i limity
+        na API (Application Programming Interface) volání, které jsou sice
+        definovány v tisících za minutu, pokud ale spustíme složitější
+        automatizaci, může být aplikaci zabráněno v dalším běhu a tudíž by se
+        celý systém na určitou dobu zastavil. V tomto případě bychom hovořili o
+        degradaci služby a musíme takovou skutečnost promítnout do úprav
+        požadavků na systém. Zřídkakdy však k takovým omezení dochází a proto
+        můžeme uvézt dostupnost 95\%.
+
         \subsection*{Omezení z hlediska financí}
+        I když je tento návrh koncipován do podoby, který je z hlediska
+        implememtace proveditelný ve středním časovém horizontu, musíme vzít v
+        potaz i uvolněné finance na celý projekt. Nyní nastíním jednotlivá
+        odvětví, která budou vyžadovat přímé náklady na projekt. Hlavní
+        aktivitou, která bude vyžadovat největší část investice je implemetace a
+        konfigurace cloudových služeb. Protože se musí monolitní kód
+        refaktorovat do menších mikro služeb, vyžádá si tato aktivita nejvíce
+        financčních i časových prostředků. Pokud nebude možné financovat celý
+        přesun do cloudu, je možné přenést pouze nejnutnější komponenty, které
+        jsou zodpovědné za schvalovací proces. Ten je v konečném důsledku
+        zodpovědný za majoritu funkcí, jejichž modernizací docílíme nejlepších
+        výsledků v efektivitě celého systému.
+
+        Dalším omezením může být i samotné vyjednávání o ceně licencí a úrovní 
+        podpory od dodavatele softwaru pro frontendové řešení. Pokud by
+        dodavatel nesouhlasil s novými podmínkami, mohlo by dojít v nejhorším
+        případě i ke komplikacím v oblasti poptávání nového řešení. Vzhledem k
+        časové citlivosti i citlivoasti systému by mohly také vzniknout
+        nedostatky ve výběrových řízeních a akceptování nového dodavatele s
+        horšími podmínkami.  
+        
+        I když je tým adminstrátorů zkušený v oblasti technologií od Microsoftu,
+        přeci jenom na ně bude kladen důraz na osvojení si způsobu práce s
+        cloudovým prostředím. Zde může dojít k omezení z pohledu personální
+        kapacity, kdy se může pouze část týmu věnovat adopci nových postupů.
 
         \section*{Závěr}
+        Celý návrh řešení optimalizace systému je koncipován tak, aby byl co
+        nejméně invazivní do běžného provozu. Protože firma podniká ve velice
+        regulovaném prostředí, musí se řídit metodikami pro nasazování a
+        implementaci nových systémů. 
 
 	\end{spacing}
     \end{sloppypar}
